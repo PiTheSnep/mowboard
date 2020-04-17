@@ -30,7 +30,7 @@ const DEFAULT_KEPPCON_CONFIG: KeppConConfig = {
 /**
  * MongoDB wrapper.
  */
-export class KeppCon {
+export class DatabaseUtil {
 	public readonly logger = createLogger("db");
 	public readonly config = DEFAULT_KEPPCON_CONFIG;
 	public connectionStatus = DBConnectionStatus.Disconnected;

@@ -1092,7 +1092,7 @@
     "@types/bson" "*"
     "@types/node" "*"
 
-"@types/mongoose@^5.3.26":
+"@types/mongoose@^5.3.26", "@types/mongoose@^5.7.11":
   version "5.7.11"
   resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-5.7.11.tgz#7ee427461fe7a52d5a9a75764a6c05e97377729a"
   integrity sha512-zFEIznu5oB9QAoGhY1+9SCNXlPbGOdWOQVqlFu/IicjaPAHc3V2uEE7gPaXOAbI70IP0762eRegnu7CxvMWeJw==
@@ -5800,7 +5800,7 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose@^5.5.2:
+mongoose@^5.5.2, mongoose@^5.9.9:
   version "5.9.9"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.9.9.tgz#8e242330bcae306467936e3e65374bb84f3c06f6"
   integrity sha512-pLkIkM7XQwfbQ+xK1l57Zv0DYPH190/I6Cv5+PbJGfAU0HvX0atMlp+vly8zcjNTEvTkVM80qA5eBYBvZyLYXw==

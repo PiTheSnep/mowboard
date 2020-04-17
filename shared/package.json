@@ -1,0 +1,19 @@
+{
+	"name": "eslint-config",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"start": "ts-node src",
+		"build:watch": "tsc --project ./tsconfig.json --watch",
+		"build": "tsc --project ./tsconfig.json && eslint src/**/*.*",
+		"lint": "eslint src/**/*.*"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.149",
+		"@types/mongoose": "^5.7.11"
+	},
+	"dependencies": {
+		"lodash": "^4.17.15",
+		"mongoose": "^5.9.9"
+	}
+}
