@@ -87,6 +87,7 @@ typings/
 node_modules/
 
 dist/
+.awcache
 
 src/env/dev.ts
 
