@@ -4,7 +4,7 @@ export function authorize(jwt: string): AuthActionTypes {
 	return {
 		type: AuthActions.Authorize,
 		payload: {
-			jwt
-		}
+			jwt,
+		},
 	};
 }

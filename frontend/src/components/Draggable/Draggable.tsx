@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface DraggableProps {
-  key: number;
+	key: number;
 
-  move: (from: number, to: number) => Draggable;
-  find: (key: number) => Draggable | undefined;
+	move: (from: number, to: number) => Draggable;
+	find: (key: number) => Draggable | undefined;
 
-  children: any;
+	children: any;
 }
 
 /**

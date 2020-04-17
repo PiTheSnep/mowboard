@@ -1,7 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { Descriptions } from 'antd';
+import { Descriptions } from "antd";
 
 export const GuildInformation = (): JSX.Element => (
-  <Descriptions></Descriptions>
+	<Descriptions></Descriptions>
 );

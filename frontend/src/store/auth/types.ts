@@ -1,7 +1,7 @@
 export enum AuthStateStatus {
-	Authenticated = 'AUTHENTICATED',
-	Authorizing = 'AUTHORIZING',
-	Unauthorized = 'UNAUTHORIZED'
+	Authenticated = "AUTHENTICATED",
+	Authorizing = "AUTHORIZING",
+	Unauthorized = "UNAUTHORIZED",
 }
 
 export interface AuthState {
@@ -10,8 +10,8 @@ export interface AuthState {
 }
 
 export enum AuthActions {
-	Authorize = 'AUTHORIZE',
-	Logout = 'LOGOUT'
+	Authorize = "AUTHORIZE",
+	Logout = "LOGOUT",
 }
 
 interface AuthorizeAction {

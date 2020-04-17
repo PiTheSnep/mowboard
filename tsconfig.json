@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"module": "CommonJS",
+		"target": "ESNext",
+
+		"jsx": "react",
+
+		"esModuleInterop": true
+	},
+	"include": [
+		"./backend/src/**/*",
+		"./frontend/src/**/*",
+		"./shared/src/**/*"
+	]
+}

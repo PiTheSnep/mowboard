@@ -1,21 +1,21 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "module": "CommonJS",
-    "target": "ESNext",
+	"compilerOptions": {
+		"strict": true,
+		"module": "CommonJS",
+		"target": "ESNext",
 
-    "outDir": "./dist/",
-    "jsx": "react",
+		"outDir": "./dist/",
+		"jsx": "react",
 
-    "baseUrl": "./src",
-    "paths": {
-      "@layout/*": ["./layout/*"],
-      "@pages/*": ["./pages/*"],
-      "@theme/*": ["./theme/*"],
-      "~/*": ["./*"]
-    },
+		"baseUrl": "./src",
+		"paths": {
+			"@layout/*": ["./layout/*"],
+			"@pages/*": ["./pages/*"],
+			"@theme/*": ["./theme/*"],
+			"~/*": ["./*"]
+		},
 
-    "esModuleInterop": true
-  },
-  "include": ["./src/**/*"]
+		"esModuleInterop": true
+	},
+	"include": ["./src/**/*"]
 }
