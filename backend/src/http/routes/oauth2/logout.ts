@@ -1,11 +1,11 @@
 import * as express from "express";
 
-import { KittyServer } from "../..";
-import { ClientUserModel } from "../../../KeppCon/models/ClientUser";
+import { NyawesomeHttpServer } from "../..";
+import { ClientUserModel } from "../../../models";
 import { ServersideError } from "../../errors";
 import { fetchToken } from "../../util/auth";
 
-export const logoutHandler = (server: KittyServer) => async (
+export const logoutHandler = (server: NyawesomeHttpServer) => async (
 	req: express.Request,
 	res: express.Response,
 ) => {

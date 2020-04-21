@@ -1,7 +1,6 @@
 import { Router } from "express";
 
-import { ClientUserModel } from "../../KeppCon/models/ClientUser";
-import { UserModel } from "../../KeppCon/models/User";
+import { ClientUserModel, UserModel } from "../../models";
 import { removeFields } from "../../util/mongo";
 import { ServersideError } from "../errors";
 import { fetchToken, requireAuthentication } from "../util/auth";

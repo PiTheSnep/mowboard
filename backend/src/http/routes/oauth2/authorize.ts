@@ -4,16 +4,19 @@ import * as express from "express";
 import * as jwt from "jsonwebtoken";
 import * as qs from "query-string";
 
-import { KittyServer } from "../..";
+import { validateObject } from "@mowboard/shared/src/utils";
+
+import { NyawesomeHttpServer } from "../..";
 import { OAuth2Config, OAuth2ConfigSchema } from "../../../config/oauth2";
-import { validateObject } from "../../../config/validation";
-import { ClientUserModel } from "../../../KeppCon/models/ClientUser";
-import { UserModel } from "../../../KeppCon/models/User";
-import { fetchCurrentUser, fetchCurrentUserGuilds } from "../../../util/requests";
+import { UserModel, ClientUserModel } from "../../../models";
+import {
+	fetchCurrentUser,
+	fetchCurrentUserGuilds,
+} from "../../../util/requests";
 import { BadRequest, ServersideError } from "../../errors";
 import { ACTIVE_AUTH_TICKETS } from "./";
 
-export const authorizeHandler = (server: KittyServer) => async (
+export const authorizeHandler = (server: NyawesomeHttpServer) => async (
 	req: express.Request,
 	res: express.Response,
 ) => {

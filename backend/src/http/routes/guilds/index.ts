@@ -1,10 +1,9 @@
 import { Router } from "express";
 
 import { Route } from "../";
-import { Errors } from "../../";
-import { GuildModel } from "../../../KeppCon/models/Guild";
-import { InfractionModel } from "../../../KeppCon/models/Infraction";
+import { GuildModel, InfractionModel } from "../../../models";
 import { removeFields } from "../../../util/mongo";
+import * as errors from "../../errors";
 import { fetchUser, requireAuthentication } from "../../util/auth";
 import { permissionsHandler } from "./permissions";
 
@@ -20,7 +19,7 @@ export const guilds: Route = {
 			.get("/@me", requireAuthentication, async (req, res) => {
 				const user = await fetchUser(req, res);
 				if (!user) {
-					return Errors.Unauthorized(res);
+					return errors.Unauthorized(res);
 				}
 
 				res.json(user.guilds);
@@ -29,7 +28,7 @@ export const guilds: Route = {
 				const guildID = req.params.id;
 
 				if (!guildID) {
-					return Errors.BadRequest(res);
+					return errors.BadRequest(res);
 				}
 
 				const user = await fetchUser(req, res);
@@ -37,7 +36,7 @@ export const guilds: Route = {
 					return;
 				}
 				if (user.guilds.filter((v) => v.id === guildID).length === 0) {
-					return Errors.Unauthorized(res);
+					return errors.Unauthorized(res);
 				}
 
 				const guild = await GuildModel.findById(guildID);
@@ -48,12 +47,12 @@ export const guilds: Route = {
 				requireAuthentication,
 				async (req, res) => {
 					if (!req.param("id")) {
-						return Errors.BadRequest(res);
+						return errors.BadRequest(res);
 					}
 
 					const user = await fetchUser(req, res);
 					if (!user) {
-						return Errors.ServersideError(res);
+						return errors.ServersideError(res);
 					}
 
 					if (
@@ -61,7 +60,7 @@ export const guilds: Route = {
 							(guild) => guild.id === req.param("id"),
 						).length < 1
 					) {
-						return Errors.Unauthorized(res);
+						return errors.Unauthorized(res);
 					}
 
 					const infractions = await InfractionModel.find({

@@ -1,24 +1,23 @@
 import _ from "lodash";
 import mongoose from "mongoose";
 
-import { env } from "../env";
-import { NyAPI } from "../nya";
-import { createLogger } from "../util/logging";
+import { utils, env } from "@mowboard/shared/src";
+
 import { Guild, GuildModel } from "./models/Guild";
 
-enum DBConnectionStatus {
+enum ConnectionStatus {
 	Disconnected = 0,
 	Connecting,
 	Connected,
 	Reconnecting,
 }
 
-interface KeppConConfig {
+interface DatabaseConfig {
 	dbUri: string;
 	connectionOptions: mongoose.ConnectionOptions;
 }
 
-const DEFAULT_KEPPCON_CONFIG: KeppConConfig = {
+const DEFAULT_DATABASE_CONFIG: DatabaseConfig = {
 	dbUri: env.DB_URI,
 	connectionOptions: {
 		useNewUrlParser: true,
@@ -31,21 +30,14 @@ const DEFAULT_KEPPCON_CONFIG: KeppConConfig = {
  * MongoDB wrapper.
  */
 export class DatabaseUtil {
-	public readonly logger = createLogger("db");
-	public readonly config = DEFAULT_KEPPCON_CONFIG;
-	public connectionStatus = DBConnectionStatus.Disconnected;
+	public readonly logger = utils.createLogger();
+	public readonly config = DEFAULT_DATABASE_CONFIG;
+	public connectionStatus = ConnectionStatus.Disconnected;
 
 	public cache: Map<string, Guild> = new Map();
 
-	constructor(
-		readonly global: NyAPI,
-		config: Partial<KeppConConfig> = DEFAULT_KEPPCON_CONFIG,
-	) {
-		this.config = { ...DEFAULT_KEPPCON_CONFIG, ...config };
-
-		this.logger.debug(
-			`Mongoose v${mongoose.version} - will connect to ${this.config.dbUri}`,
-		);
+	constructor(config: Partial<DatabaseConfig> = DEFAULT_DATABASE_CONFIG) {
+		this.config = { ...DEFAULT_DATABASE_CONFIG, ...config };
 	}
 	/**
 	 * Fetches a guild from the database.
@@ -146,7 +138,7 @@ export class DatabaseUtil {
 
 		try {
 			await mongoose.connect(env.DB_URI, this.config.connectionOptions);
-			this.connectionStatus = DBConnectionStatus.Connected;
+			this.connectionStatus = ConnectionStatus.Connected;
 
 			this.logger.info("Connected to MongoDB.");
 

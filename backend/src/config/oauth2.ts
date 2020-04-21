@@ -1,5 +1,5 @@
-import { env } from "../env";
-import { ObjectFromSchema } from "./validation";
+import { env } from "@mowboard/shared/src";
+import { ObjectFromSchema } from "@mowboard/shared/src/utils";
 
 export const OAuth2ConfigSchema = {
 	client_id: String,

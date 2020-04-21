@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { ClientUserModel } from "../../KeppCon/models/ClientUser";
-import { UserModel } from "../../KeppCon/models/User";
+import { UserModel, ClientUserModel } from "../../models";
 import { ServersideError, Unauthorized } from "../errors";
 
 /**

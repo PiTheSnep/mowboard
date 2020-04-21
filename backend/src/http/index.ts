@@ -2,36 +2,35 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import { Server } from "http";
-import mongoose from "mongoose";
 import morgan from "morgan";
 
-import { env } from "../env";
-import { NyAPI } from "../nya";
-import { Logger } from "../util/logging";
-import * as Errors from "./errors";
+import { env, utils } from "@mowboard/shared/src";
+
+import { NyawesomeServer } from "../NyawesomeServer";
+import * as errors from "./errors";
 import { routes } from "./routes";
 
-interface KittyServerConfig {
+interface NyawesomeHttpServerConfig {
 	port: number;
 }
 
-const DEFAULT_SERVER_CONFIG: KittyServerConfig = {
+const DEFAULT_SERVER_CONFIG: NyawesomeHttpServerConfig = {
 	port: env.BACKEND_PORT,
 };
 
 /**
  * Basic wrapper around an express server.
  */
-export class KittyServer {
-	public readonly logger = new Logger("http");
-	public readonly config: KittyServerConfig = DEFAULT_SERVER_CONFIG;
+export class NyawesomeHttpServer {
+	public readonly logger = utils.createLogger();
+	public readonly config: NyawesomeHttpServerConfig = DEFAULT_SERVER_CONFIG;
 
 	public readonly express: express.Application = express();
 	public readonly http: Server = new Server(this.express);
 
 	constructor(
-		readonly global: NyAPI,
-		config: Partial<KittyServerConfig> = DEFAULT_SERVER_CONFIG,
+		readonly global: NyawesomeServer,
+		config: Partial<NyawesomeHttpServerConfig> = DEFAULT_SERVER_CONFIG,
 	) {
 		this.config = { ...DEFAULT_SERVER_CONFIG, ...config };
 
@@ -50,7 +49,10 @@ export class KittyServer {
 			.on("error", (err) => this.logger.error(err))
 			.on("close", () => this.logger.warn("HTTP server closed."))
 			.on("listening", () =>
-				this.logger.info("KittyServer listening on", this.config.port),
+				this.logger.info(
+					"HTTP server listening on %d.",
+					this.config.port,
+				),
 			);
 
 		this.registerRoutes();
@@ -76,12 +78,10 @@ export class KittyServer {
 					uptime: Math.floor(process.uptime()),
 				}),
 			)
-			.use((req, res) => Errors.NotFound(res));
+			.use((req, res) => errors.NotFound(res));
 	}
 
 	start() {
 		this.http.listen(this.config.port);
 	}
 }
-
-export { Errors };

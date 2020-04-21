@@ -1,13 +1,14 @@
 import * as express from "express";
 import * as qs from "query-string";
 
-import { KittyServer } from "../..";
+import { validateObject } from "@mowboard/shared/src/utils";
+
+import { NyawesomeHttpServer } from "../..";
 import { OAuth2Config, OAuth2ConfigSchema } from "../../../config/oauth2";
-import { validateObject } from "../../../config/validation";
 import { ServersideError } from "../../errors";
 import { ACTIVE_AUTH_TICKETS } from "./";
 
-export const loginHandler = (server: KittyServer) => (
+export const loginHandler = (server: NyawesomeHttpServer) => (
 	req: express.Request,
 	res: express.Response,
 ) => {

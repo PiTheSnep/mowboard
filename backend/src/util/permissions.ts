@@ -1,5 +1,6 @@
-import { env } from "../env";
-import { Guild, GuildModel } from "../KeppCon/models/Guild";
+import { env } from "@mowboard/shared/src";
+
+import { Guild, GuildModel } from "../models/Guild";
 import { fetchGuildMemberRoles } from "./discord";
 
 export const getGuildsWithPermission = async (userID: string) => {

@@ -1,10 +1,11 @@
 import * as express from "express";
 
+import { validateObject } from "@mowboard/shared/src/utils";
+
 import { Route } from "../";
-import { KittyServer } from "../..";
-import { validateObject } from "../../../config/validation";
-import { DispatchEvents } from "../../../SnepServer/events/dispatch";
-import { OutgoingEvents } from "../../../SnepServer/events/outgoing/types";
+import { NyawesomeHttpServer } from "../..";
+import { DispatchEvents } from "../../../gateway/events/dispatch";
+import { OutgoingEvents } from "../../../gateway/events/outgoing/types";
 import { BadRequest } from "../../errors";
 import { requireAuthentication } from "../../util/auth";
 
@@ -16,7 +17,7 @@ const PermissionUpdateSchema = {
 export const permissionsHandler: Route = {
 	method: "use",
 	path: "/:id/permissions",
-	handler: (server: KittyServer) =>
+	handler: (server: NyawesomeHttpServer) =>
 		express
 			.Router()
 			.get("/", requireAuthentication, (req, res) => {

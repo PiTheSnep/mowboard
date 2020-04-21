@@ -89,7 +89,7 @@ node_modules/
 dist/
 .awcache
 
-src/env/dev.ts
+shared/src/env/dev.ts
 
 # FFS apple
 .DS_Store

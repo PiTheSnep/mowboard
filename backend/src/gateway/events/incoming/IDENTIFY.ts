@@ -1,6 +1,7 @@
+import { env } from "@mowboard/shared/src";
+import { ObjectFromSchema } from "@mowboard/shared/src/utils";
+
 import { ErrorCodes } from "../";
-import { ObjectFromSchema } from "../../../config/validation";
-import { env } from "../../../env";
 import { IncomingEvents, IncomingSocketHandler } from "./types";
 
 const IdentifyEventSchema = {

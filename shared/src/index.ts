@@ -1,4 +1,3 @@
-export * as models from "./models";
-export * from "./db";
+export * as models from "../../backend/src/models";
 export * from "./env";
 export * as utils from "./utils";
