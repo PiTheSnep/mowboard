@@ -4,6 +4,7 @@ WORKDIR /build/
 
 COPY package.json .
 COPY yarn.lock .
+COPY tsconfig.json .
 
 COPY shared ./shared
 COPY frontend ./frontend
