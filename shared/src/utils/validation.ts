@@ -11,7 +11,7 @@ export type ObjectFromSchema<T extends Object> = {
 	[P in keyof T]: ReturnType<T[P]>;
 };
 
-interface SchemaValidation<T> {
+export interface SchemaValidation<T> {
 	missingEntries: (keyof T)[];
 	invalidTypes: (keyof T)[];
 	valid: boolean;
@@ -48,3 +48,15 @@ export const validateObject = <T extends any>(
 
 	return validation;
 };
+
+export class ValidationError extends Error {
+	constructor(readonly validation: SchemaValidation<any>) {
+		super(
+			"Invlaid object -  missing: " +
+				validation.missingEntries +
+				", invalid: " +
+				validation.invalidTypes,
+		);
+		this.name = "ValidationError";
+	}
+}
