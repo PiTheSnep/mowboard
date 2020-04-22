@@ -8,7 +8,7 @@ import { OutgoingSocketMessage } from "./events/outgoing/types";
 import { Socket, SocketEvents } from "./Socket";
 
 interface NyawesomeGatewayServerConfig {
-	port: number;
+	port: number | string;
 }
 
 const DEFAULT_SERVER_CONFIG: NyawesomeGatewayServerConfig = {
@@ -34,7 +34,7 @@ export class NyawesomeGatewayServer {
 	}
 
 	public start() {
-		this.wss = new WebSocket.Server({ port: this.config.port })
+		this.wss = new WebSocket.Server({ port: Number(this.config.port) })
 			.on("listening", () => {
 				this.logger.info("WSS listening on port %d.", this.config.port);
 			})

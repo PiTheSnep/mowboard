@@ -11,7 +11,7 @@ import * as errors from "./errors";
 import { routes } from "./routes";
 
 interface NyawesomeHttpServerConfig {
-	port: number;
+	port: string | number;
 }
 
 const DEFAULT_SERVER_CONFIG: NyawesomeHttpServerConfig = {
