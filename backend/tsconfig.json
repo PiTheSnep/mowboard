@@ -9,9 +9,15 @@
 
 		"baseUrl": "./src",
 		"paths": {
-			"@*": ["src/*"]
+			"~/*": ["src/*"]
 		}
 	},
-	"include": ["src/**/*"],
+	"include": [
+		"src/**/*",
+		"src/models/Guild.ts",
+		"src/models/index.ts",
+		"src/models/Infraction.ts",
+		"src/models/User.ts"
+	],
 	"exclude": ["node_modules", "dist"]
 }

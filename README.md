@@ -4,18 +4,25 @@ Frontend for Nyawesome VC bot.
 
 ## Packages
 
--   frontend
--   backend
--   shared
+-   **frontend** - React web panel & dashboard for interactively configuring the bot.
+-   **backend** - API backend allowing integration between the bot, MongoDB, and the frontend.
+-   **shared** - Shared constructs & type definitions used throughout the project.
 
-## Frontend
+## Environment Configuration
 
-React web panel & dashboard for interactively configuring the bot.
+The environment for this project is configured using the `.env`file. This is a key-value map of variables, an example of which is given below.
 
-## Backend
+```dotenv
+TOKEN=""
 
-API backend allowing integration between the bot, MongoDB, and the frontend.
+DB_URI=""
+READ_PERMISSION_LEVEL=2
+WRITE_PERMISSION_LEVEL=1
 
-## Shared
-
-Shared constructs & type definitions used throughout the project.
+BACKEND_PORT=8080
+CLIENT_ID=""
+CLIENT_SECRET=""
+WS_PORT=6342
+REDIRECT_URI=""
+SCOPE=""
+```

@@ -87,8 +87,7 @@ typings/
 node_modules/
 
 dist/
-
-src/env/dev.ts
+.awcache
 
 # FFS apple
 .DS_Store

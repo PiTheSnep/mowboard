@@ -2,8 +2,10 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "CommonJS",
-		"rootDirs": ["./backend", "shared"],
-		"declaration": false,
+
+		"declaration": true,
+		"outDir": "./dist",
+
 		"esModuleInterop": true
 	},
 
