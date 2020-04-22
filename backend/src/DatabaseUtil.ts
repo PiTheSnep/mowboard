@@ -1,9 +1,11 @@
 import _ from "lodash";
 import mongoose from "mongoose";
 
-import { utils, env } from "@mowboard/shared";
+import { getEnv, utils } from "@mowboard/shared";
 
 import { Guild, GuildModel } from "./models/Guild";
+
+const env = getEnv();
 
 enum ConnectionStatus {
 	Disconnected = 0,

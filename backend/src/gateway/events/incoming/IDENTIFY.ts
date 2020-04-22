@@ -1,8 +1,9 @@
-import { env } from "@mowboard/shared";
+import { getEnv } from "@mowboard/shared";
 import { ObjectFromSchema } from "@mowboard/shared/dist/utils";
-
 import { ErrorCodes } from "../";
 import { IncomingEvents, IncomingSocketHandler } from "./types";
+
+const env = getEnv();
 
 const IdentifyEventSchema = {
 	token: String,

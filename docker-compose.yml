@@ -14,5 +14,9 @@ services:
         build:
             context: .
             dockerfile: ./frontend/Dockerfile
+            args:
+                - REDIRECT_URI
         container_name: frontend
-        ports: "3000:80"
+        env_file: .env
+        ports:
+            - "3000:80"

@@ -2,12 +2,16 @@ import { config } from "dotenv";
 import { resolve } from "path";
 
 import { validateObject, ValidationError } from "../utils";
-import { Environment, EnvironmentSchema } from "./types";
+import {
+	Environment,
+	EnvironmentSchema,
+	FrontendEnvironmentSchema,
+	FrontendEnvironment,
+} from "./types";
 import { include, omit } from "./utils";
 
 // Register .env
 if (process.env.NODE_ENV != "production") {
-	process.env.NODE_ENV = "development";
 	config({ path: resolve(__dirname, "../../../.env") });
 }
 
@@ -16,24 +20,34 @@ const env: Environment = include(
 	...(Object.keys(EnvironmentSchema) as (keyof typeof EnvironmentSchema)[]),
 ) as Environment;
 
-// Validate environment.
-const validation = validateObject(EnvironmentSchema, env);
-if (!validation.valid) {
-	throw new ValidationError(validation);
-}
+/**
+ * Fetch the environment config.
+ */
+export const getEnv = () => {
+	// Validate environment.
+	const validation = validateObject(EnvironmentSchema, env);
+	if (!validation.valid) {
+		throw new ValidationError(validation);
+	}
 
-export { env };
+	return env;
+};
 
-export const frontendSafeEnv = omit(
-	env,
-	"BACKEND_PORT",
-	"CLIENT_ID",
-	"CLIENT_SECRET",
-	"DB_URI",
-	"READ_PERMISSION_LEVEL",
-	"REDIRECT_URI",
-	"SCOPE",
-	"TOKEN",
-	"WRITE_PERMISSION_LEVEL",
-	"WS_PORT",
-);
+/**
+ * Fetch the environment config without sensitive variables.
+ */
+export const getFrontendSafeEnv = () => {
+	const frontendEnv = include(
+		env,
+		...(Object.keys(
+			FrontendEnvironmentSchema,
+		) as (keyof typeof EnvironmentSchema)[]),
+	) as FrontendEnvironment;
+
+	const validation = validateObject(FrontendEnvironmentSchema, frontendEnv);
+	if (!validation.valid) {
+		throw new ValidationError(validation);
+	}
+
+	return frontendEnv;
+};

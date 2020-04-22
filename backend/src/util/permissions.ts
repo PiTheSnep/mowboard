@@ -1,4 +1,6 @@
-import { env } from "@mowboard/shared";
+import { getEnv } from "@mowboard/shared";
+
+const env = getEnv();
 
 import { Guild, GuildModel } from "../models/Guild";
 import { fetchGuildMemberRoles } from "./discord";

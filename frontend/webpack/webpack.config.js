@@ -7,7 +7,6 @@ const {
 } = require("awesome-typescript-loader");
 
 module.exports = {
-	mode: "development",
 	context: process.cwd(),
 
 	entry: ["./src/index"],
@@ -87,7 +86,7 @@ module.exports = {
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
 		new webpack.EnvironmentPlugin(
-			require("@mowboard/shared/dist/env").frontendSafeEnv,
+			require("@mowboard/shared/dist/env").getFrontendSafeEnv(),
 		),
 	],
 };

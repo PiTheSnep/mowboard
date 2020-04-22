@@ -27,3 +27,11 @@ export const EnvironmentSchema = {
 	REDIRECT_URI: String,
 	SCOPE: String,
 };
+
+export interface FrontendEnvironment {
+	REDIRECT_URI: string;
+}
+
+export const FrontendEnvironmentSchema = {
+	REDIRECT_URI: String,
+};
