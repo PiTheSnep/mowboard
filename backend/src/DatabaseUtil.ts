@@ -1,7 +1,7 @@
 import _ from "lodash";
 import mongoose from "mongoose";
 
-import { utils, env } from "@mowboard/shared/src";
+import { utils, env } from "@mowboard/shared";
 
 import { Guild, GuildModel } from "./models/Guild";
 

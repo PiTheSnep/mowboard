@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import WebSocket from "ws";
 
-import { env, utils } from "@mowboard/shared/src";
+import { env, utils } from "@mowboard/shared";
 
 import { NyawesomeServer } from "../NyawesomeServer";
 import { OutgoingSocketMessage } from "./events/outgoing/types";

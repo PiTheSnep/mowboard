@@ -2,13 +2,16 @@ import { EventEmitter } from "events";
 import { IncomingMessage } from "http";
 import WebSocket from "ws";
 
+import { utils } from "@mowboard/shared";
+const { validateObject } = utils;
+import { ObjectFromSchema } from "@mowboard/shared/dist/utils";
+
 import { NyawesomeGatewayServer } from "./";
 import { ErrorCodes } from "./events";
 import { IncomingSocketHandlers } from "./events/incoming";
 import { IncomingEvents, IncomingSocketMessage } from "./events/incoming/types";
 import { OutgoingEventCreators } from "./events/outgoing";
 import { OutgoingEvents, OutgoingSocketMessage } from "./events/outgoing/types";
-import { ObjectFromSchema, validateObject } from "@mowboard/shared/src/utils";
 
 /**
  * Enum of Socket event names.

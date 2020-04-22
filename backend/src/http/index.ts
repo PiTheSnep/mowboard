@@ -4,7 +4,7 @@ import express from "express";
 import { Server } from "http";
 import morgan from "morgan";
 
-import { env, utils } from "@mowboard/shared/src";
+import { env, utils } from "@mowboard/shared";
 
 import { NyawesomeServer } from "../NyawesomeServer";
 import * as errors from "./errors";

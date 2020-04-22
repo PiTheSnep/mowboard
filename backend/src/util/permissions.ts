@@ -1,4 +1,4 @@
-import { env } from "@mowboard/shared/src";
+import { env } from "@mowboard/shared";
 
 import { Guild, GuildModel } from "../models/Guild";
 import { fetchGuildMemberRoles } from "./discord";

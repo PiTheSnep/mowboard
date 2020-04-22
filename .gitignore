@@ -91,3 +91,5 @@ dist/
 
 # FFS apple
 .DS_Store
+
+tsconfig.tsbuildinfo

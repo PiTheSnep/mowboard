@@ -1,5 +1,5 @@
-import { env } from "@mowboard/shared/src";
-import { ObjectFromSchema } from "@mowboard/shared/src/utils";
+import { env } from "@mowboard/shared";
+import { ObjectFromSchema } from "@mowboard/shared/dist/utils/";
 
 export const OAuth2ConfigSchema = {
 	client_id: String,
