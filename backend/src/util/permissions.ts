@@ -27,7 +27,7 @@ export const hasGuildWritePermission = async (
 		config.permissions &&
 		config.permissions.users &&
 		config.permissions.users[userID] &&
-		config.permissions.users[userID] >= env.WRITE_PERMISSION_LEVEL
+		config.permissions.users[userID] >= Number(env.WRITE_PERMISSION_LEVEL)
 	) {
 		return true;
 	}
@@ -37,7 +37,7 @@ export const hasGuildWritePermission = async (
 		if (
 			config.permissions &&
 			config.permissions.roles &&
-			config.permissions.roles[role] >= env.WRITE_PERMISSION_LEVEL
+			config.permissions.roles[role] >= Number(env.WRITE_PERMISSION_LEVEL)
 		) {
 			return true;
 		}
@@ -62,7 +62,7 @@ export const hasGuildReadPermission = async (
 		config.permissions &&
 		config.permissions.users &&
 		config.permissions.users[userID] &&
-		config.permissions.users[userID] >= env.READ_PERMISSION_LEVEL
+		config.permissions.users[userID] >= Number(env.READ_PERMISSION_LEVEL)
 	) {
 		return true;
 	}
@@ -72,7 +72,7 @@ export const hasGuildReadPermission = async (
 		if (
 			config.permissions &&
 			config.permissions.roles &&
-			config.permissions.roles[role] >= env.READ_PERMISSION_LEVEL
+			config.permissions.roles[role] >= Number(env.READ_PERMISSION_LEVEL)
 		) {
 			return true;
 		}

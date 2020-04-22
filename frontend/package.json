@@ -2,7 +2,8 @@
 	"name": "@mowboard/frontend",
 	"version": "0.1.0",
 	"scripts": {
-		"start": "webpack-dev-server --hot --config ./webpack/webpack.dev.js"
+		"start": "webpack-dev-server --hot --config ./webpack/webpack.dev.js",
+		"build": "webpack --config ./webpack/webpack.prod.js"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.7",

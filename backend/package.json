@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nodemon ./dist/runAPI.js",
 		"build:dev": "tsc --build tsconfig.json --watch",
-		"start": "cross-env NODE_ENV=production node dist/runAPI.js",
+		"start": "node dist/tools/runAPI.js",
 		"build": "tsc --build tsconfig.json",
 		"test": "mocha -r ts-node/register tests/*.ts"
 	},

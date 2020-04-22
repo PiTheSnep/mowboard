@@ -6,7 +6,7 @@ const {
 	TsConfigPathsPlugin,
 } = require("awesome-typescript-loader");
 
-smodule.exports = {
+module.exports = {
 	mode: "development",
 	context: process.cwd(),
 
