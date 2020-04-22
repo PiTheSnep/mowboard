@@ -1,0 +1,16 @@
+name: Backend Container
+
+on:
+    push:
+        branches: [master, stable]
+    pull_request:
+        branches: [master, stable]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Build the backend image
+              run: docker build . --file ./backend/Dockerfile --tag mowboard-backend:$(date +%s)
