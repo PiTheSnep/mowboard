@@ -6,7 +6,10 @@ import { Environment, EnvironmentSchema } from "./types";
 import { include, omit } from "./utils";
 
 // Register .env
-config({ path: resolve(__dirname, "../../../.env") });
+if (process.env.NODE_ENV != "production") {
+	process.env.NODE_ENV = "development";
+	config({ path: resolve(__dirname, "../../../.env") });
+}
 
 const env: Environment = include(
 	process.env,
