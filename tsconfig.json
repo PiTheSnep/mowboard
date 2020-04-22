@@ -1,16 +1,11 @@
 {
 	"compilerOptions": {
-		"strict": true,
-		"module": "CommonJS",
 		"target": "ESNext",
-
-		"jsx": "react",
-
+		"module": "CommonJS",
+		"rootDirs": ["./backend", "shared"],
+		"declaration": false,
 		"esModuleInterop": true
 	},
-	"include": [
-		"./backend/src/**/*",
-		"./frontend/src/**/*",
-		"./shared/src/**/*"
-	]
+
+	"include": ["src/**/*.ts"]
 }
