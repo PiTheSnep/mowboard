@@ -4,7 +4,8 @@ import * as express from "express";
 import * as jwt from "jsonwebtoken";
 import * as qs from "query-string";
 
-import { validateObject } from "@mowboard/shared/src/utils";
+import { utils } from "@mowboard/shared";
+const { validateObject } = utils;
 
 import { NyawesomeHttpServer } from "../..";
 import { OAuth2Config, OAuth2ConfigSchema } from "../../../config/oauth2";

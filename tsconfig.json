@@ -1,11 +1,15 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "CommonJS",
-		"rootDirs": ["./backend", "shared"],
-		"declaration": false,
-		"esModuleInterop": true
-	},
+	"include": [
+		"backend/src/**/*.ts",
+		"frontend/src/**/*.ts",
+		"shared/src/**/*.ts"
+	],
 
-	"include": ["src/**/*.ts"]
+	"exclude": ["**/node_modules", "node_modules/@types/react-native"],
+
+	"references": [
+		{ "path": "./shared" },
+		{ "path": "./backend" },
+		{ "path": "./frontend" }
+	]
 }

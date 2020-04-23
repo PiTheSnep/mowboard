@@ -6,8 +6,7 @@ const {
 	TsConfigPathsPlugin,
 } = require("awesome-typescript-loader");
 
-smodule.exports = {
-	mode: "development",
+module.exports = {
 	context: process.cwd(),
 
 	entry: ["./src/index"],
@@ -87,7 +86,7 @@ smodule.exports = {
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
 		new webpack.EnvironmentPlugin(
-			require("@mowboard/shared/dist/env").frontendSafeEnv,
+			require("@mowboard/shared/dist/env").getFrontendSafeEnv(),
 		),
 	],
 };

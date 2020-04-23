@@ -2,18 +2,18 @@
 	"name": "@mowboard/shared",
 	"version": "0.0.0",
 	"license": "MIT",
+	"main": "./dist/index.js",
 	"scripts": {
-		"start": "ts-node src",
 		"build:watch": "tsc --project ./tsconfig.json --watch",
-		"build": "tsc --project ./tsconfig.json && eslint src/**/*.*",
+		"build": "tsc --project ./tsconfig.json",
 		"lint": "eslint src/**/*.*"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
 		"@types/lodash": "^4.14.149",
 		"@types/mongoose": "^5.7.11",
-		"@types/node": "^13.13.0",
-		"@types/winston": "^2.4.4"
+		"@types/winston": "^2.4.4",
+		"typescript": "^3.8.3"
 	},
 	"dependencies": {
 		"dotenv": "^8.2.0",

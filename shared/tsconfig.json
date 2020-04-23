@@ -1,13 +1,19 @@
 {
+	"extends": "../tsconfig.json",
+
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "CommonJS",
 
 		"declaration": true,
 		"outDir": "./dist",
+		"rootDir": "./src",
 
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"typeRoots": ["node"],
+		"composite": true
 	},
 
-	"include": ["src/**/*.ts"]
+	"include": ["src/**/*.ts"],
+	"exclude": ["../node_modules/@types/react-native"]
 }

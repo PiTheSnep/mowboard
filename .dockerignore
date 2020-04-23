@@ -83,13 +83,11 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# ori was here :3
-node_modules/
-
 dist/
 .awcache
 
 # FFS apple
 .DS_Store
 
-tsconfig.tsbuildinfo
+# Docker-specific
+Dockerfile

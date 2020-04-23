@@ -1,6 +1,7 @@
 import * as express from "express";
 
-import { validateObject } from "@mowboard/shared/src/utils";
+import { utils } from "@mowboard/shared/";
+const { validateObject } = utils;
 
 import { Route } from "../";
 import { NyawesomeHttpServer } from "../..";

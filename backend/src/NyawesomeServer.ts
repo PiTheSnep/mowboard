@@ -1,6 +1,7 @@
 import colors from "colors/safe";
 
-import { getHash } from "@mowboard/shared/src/utils";
+import { utils } from "@mowboard/shared";
+const { getHash } = utils;
 
 import { DatabaseUtil } from "./DatabaseUtil";
 import { NyawesomeHttpServer } from "./http";

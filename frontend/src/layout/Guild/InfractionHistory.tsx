@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Table, Empty } from "antd";
+import { Table, Empty, Card } from "antd";
 import { ColumnsType } from "antd/lib/table";
 import { FullHeight, Container } from "~/components";
 
