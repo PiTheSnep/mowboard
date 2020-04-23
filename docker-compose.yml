@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: ./backend/Dockerfile
         container_name: backend
-        env_file: .env
+        env_file: ./.env
         ports:
             - "8080:8080"
 
@@ -14,9 +14,7 @@ services:
         build:
             context: .
             dockerfile: ./frontend/Dockerfile
-            args:
-                - REDIRECT_URI
         container_name: frontend
-        env_file: .env
+        env_file: ./.env
         ports:
             - "3000:80"

@@ -12,21 +12,8 @@ COPY frontend ./frontend
 RUN yarn install --pure-lockfile --non-interactive
 
 # Env variables
-# To-do: reduce the number of envs in the frontend build as most of them aren't needed.
-# ARG TOKEN
-
-# ARG DB_URI
-# ARG READ_PERMISSION_LEVEL
-# ARG WRITE_PERMISSION_LEVEL
-
-# ARG BACKEND_PORT
-# ARG CLIENT_ID
-# ARG CLIENT_SECRET
-# ARG WS_PORT
-# ARG REDIRECT_URI
-# ARG SCOPE
-
-ARG NODE_ENV=production
+ENV REDIRECT_URI=
+ENV NODE_ENV=production
 
 WORKDIR /build/shared
 RUN yarn build
@@ -37,7 +24,9 @@ RUN yarn build
 # Executable image
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /build/frontend/dist /var/www
+WORKDIR /etc/nginx
+
+COPY frontend/nginx.conf .
+COPY --from=build /build/frontend/dist /usr/share/nginx/html
 
 RUN ["nginx", "-t"]
