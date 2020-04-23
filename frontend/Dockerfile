@@ -27,6 +27,6 @@ FROM nginx:alpine
 WORKDIR /etc/nginx
 
 COPY frontend/nginx.conf .
-COPY --from=build /build/frontend/dist /usr/share/nginx/html
+COPY --from=build /build/frontend/dist /etc/nginx/html
 
 RUN ["nginx", "-t"]
