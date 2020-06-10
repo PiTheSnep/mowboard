@@ -40,6 +40,6 @@
 		"typescript": "^3.4.3",
 		"@mowboard/shared": "^0.0.0"
 	},
-	"main": "dist/tools/runAPI.js",
+	"main": "dist/index.js",
 	"author": "skyefoxie <actuallyori@gmail.com>"
 }
