@@ -1,6 +1,6 @@
-# SnepServer
+# Gateway
 
-SnepServer is the WebSocket integration with [nyawesome](https://github.com/catofpoptarts/nyawesome) itself. It handles the execution of dynamic updates between changes made on the frontend, and those made using commands on the bot.
+The backend gateway provides integration with [nyawesome](https://github.com/PiTheSnep/nyawesome) itself. It handles the execution of dynamic updates between changes made on the frontend, and those made using commands on the bot.
 
 ### Events
 

@@ -1,6 +1,14 @@
+<div align="center">
+    <br />
+    <p>
+        <img src="https://i.imgur.com/ycGfMVr.png" width="500" alt="nyawesome" />
+    </p>
+    <br />
+</div>
+
 # mowboard
 
-Frontend for Nyawesome VC bot.
+Mono-repository for [Nyawesome](https://github.com/PiTheSnep/nyawesome)'s web dashboard.
 
 ## Packages
 
@@ -10,7 +18,7 @@ Frontend for Nyawesome VC bot.
 
 ## Environment Configuration
 
-The environment for this project is configured using the `.env`file. This is a key-value map of variables, an example of which is given below.
+The environment for this project is configured using the `.env` file. This is a key-value map of variables, an example of which is given below.
 
 ```dotenv
 TOKEN=""
@@ -26,3 +34,5 @@ WS_PORT=6342
 REDIRECT_URI=""
 SCOPE=""
 ```
+
+made with 💜 by [skye](https://twitter.com/skyefoxie) &copy; 2020

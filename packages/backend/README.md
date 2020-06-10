@@ -3,23 +3,16 @@
     <p>
         <img src="https://i.imgur.com/ycGfMVr.png" width="500" alt="nyawesome" />
     </p>
-    <p>
-        <a href="https://github.com/catofpoptarts/metakitty">metakitty</a> &middot;
-        <a href="https://github.com/catofpoptarts/nyawesome">nyawesome</a> &middot;
-        nyapi &middot;
-        <a href="https://github.com/catofpoptarts/fluffrontend">fluffrontend</a>
-    </p>
     <br />
-    
 </div>
 
-# nyapi
+# @mowboard/backend
 
-API for [nyawesome](https://github.com/catofpoptarts/nyawesome).
+API backend for [Nyawesome](https://github.com/PiTheSnep/nyawesome).
 
 ## Docker Build
 
-The API can be run using Docker by building the image using the `Dockerfile` in the project root. The [meta repository](https://github.com/catofpoptarts/metakitty) contains an example of a `docker-compose.yml` build file.
+The API can be run using Docker by building the image using the `Dockerfile` in the project root. The [repository root](https://github.com/PiTheSnep/mowboard/blob/master/docker-compose.yml) contains an example of a `docker-compose.yml` build file.
 
 ## Installation & development
 
@@ -51,11 +44,11 @@ $ yarn build:dev
 $ yarn dev
 ```
 
-## SnepServer
+## Gateway
 
-The API has a gateway server for performing live updates on the frontend and refreshing the bot's cache - information on it can be found [here](https://github.com/catofpoptarts/nyapi/tree/master/src/SnepServer).
+The API has a gateway for performing live updates on the frontend and refreshing the bot's cache - information on it can be found [here](https://github.com/PiTheSnep/mowboard/tree/master/packages/backend/src/gateway).
 
-## KeppCon
+## Database
 
 The API also has a wrapper around MongoDB with a whole bunch of utility methods for creating accounts and doing OAuth2 authentication.
 
@@ -86,4 +79,4 @@ These variables are required in order for OAuth2 to work. The backend will start
 
 <br/>
 
-made with 💜 by [kipp](https://twitter.com/orifoxx) &copy; 2020
+made with 💜 by [skye](https://twitter.com/skyefoxie) &copy; 2020
