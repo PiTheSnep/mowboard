@@ -3,9 +3,12 @@
 	"version": "0.0.0",
 	"private": true,
 	"workspaces": [
-		"frontend",
-		"backend",
-		"shared"
+		"packages/*"
 	],
-	"devDependencies": {}
+	"devDependencies": {
+		"lerna": "^3.22.1"
+	},
+	"scripts": {
+		"build": "lerna run build"
+	}
 }
