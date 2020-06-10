@@ -9,14 +9,5 @@
 
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true
-	},
-
-	"references": [
-		{
-			"path": "packages/backend"
-		},
-		{
-			"path": "packages/shared"
-		}
-	]
+	}
 }
