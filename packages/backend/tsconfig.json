@@ -10,5 +10,7 @@
 		}
 	},
 
+	"references": [{ "path": "../shared" }],
+
 	"include": ["src/**/*.ts"]
 }

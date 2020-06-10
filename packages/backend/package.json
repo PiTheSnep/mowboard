@@ -4,7 +4,7 @@
 	"version": "0.2.0",
 	"license": "MIT",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development nodemon ./dist/runAPI.js",
+		"dev": "cross-env NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec 'ts-node' ./src",
 		"build:dev": "tsc --build tsconfig.json --watch",
 		"start": "node dist/tools/runAPI.js",
 		"build": "tsc -b tsconfig.json",

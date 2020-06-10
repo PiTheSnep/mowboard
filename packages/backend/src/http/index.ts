@@ -1,14 +1,15 @@
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import express from 'express';
-import { Server } from 'http';
-import morgan from 'morgan';
+import bodyParser from "body-parser";
+import cors from "cors";
+import express from "express";
+import { Server } from "http";
+import morgan from "morgan";
 
-import { getEnv, utils } from '@mowboard/shared';
+import { getEnv } from "@mowboard/shared";
 
-import { NyawesomeServer } from '../NyawesomeServer';
-import * as errors from './errors';
-import { routes } from './routes';
+import { NyawesomeServer } from "../NyawesomeServer";
+import { createLogger } from "../utils/logging";
+import * as errors from "./errors";
+import { routes } from "./routes";
 
 const env = getEnv();
 
@@ -24,7 +25,7 @@ const DEFAULT_SERVER_CONFIG: HttpServerConfig = {
  * Basic wrapper around an express server.
  */
 export class HttpServer {
-	public readonly logger = utils.createLogger();
+	public readonly logger = createLogger("api");
 	public readonly config: HttpServerConfig = DEFAULT_SERVER_CONFIG;
 
 	public readonly express: express.Application = express();

@@ -4,7 +4,7 @@ import * as express from "express";
 import * as jwt from "jsonwebtoken";
 import * as qs from "query-string";
 
-import { utils } from "@mowboard/shared";
+import { validateObject } from "@mowboard/shared";
 
 import { HttpServer } from "../..";
 import { OAuth2Config, OAuth2ConfigSchema } from "../../../config/oauth2";
@@ -12,8 +12,6 @@ import { ClientUserModel, UserModel } from "../../../models";
 import { fetchCurrentUser, fetchCurrentUserGuilds } from "../../../utils/requests";
 import { BadRequest, ServersideError } from "../../errors";
 import { ACTIVE_AUTH_TICKETS } from "./";
-
-const { validateObject } = utils;
 
 export const authorizeHandler = (server: HttpServer) => async (
 	req: express.Request,
@@ -141,11 +139,16 @@ export const authorizeHandler = (server: HttpServer) => async (
 
 	const userGuilds = await fetchCurrentUserGuilds<
 		{
+			features: [];
+			icon: string;
+			id: string;
+			name: string;
+			owner: boolean;
 			permissions: number;
 		}[]
 	>(tokenData.access_token);
 
-	const guilds = userGuilds.filter((guild: { permissions: number }) =>
+	const guilds = userGuilds.filter((guild) =>
 		new Discord.Permissions(guild.permissions).has("MANAGE_GUILD", true),
 	);
 

@@ -13,11 +13,11 @@ type Constructor<T> = T extends string
 	? ArrayConstructor
 	: (...args: unknown[]) => T;
 
-type Schema<T extends object> = {
+export type Schema<T extends object> = {
 	[K in keyof T]: Constructor<T[K]>;
 };
 
-interface SchemaValidation<T> {
+export interface SchemaValidation<T> {
 	missingEntries: (keyof T)[];
 	invalidTypes: (keyof T)[];
 	valid: boolean;

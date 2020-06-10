@@ -5,7 +5,10 @@
 		"strict": false,
 		"module": "CommonJS",
 
-		"outDir": "./dist",
+		"rootDir": "src",
+		"outDir": "dist",
+
+		"composite": true,
 		"declaration": true
 	},
 

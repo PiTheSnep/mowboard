@@ -1,11 +1,12 @@
-import { IncomingMessage } from 'http';
-import WebSocket from 'ws';
+import { IncomingMessage } from "http";
+import WebSocket from "ws";
 
-import { getEnv, utils } from '@mowboard/shared';
+import { getEnv } from "@mowboard/shared";
 
-import { NyawesomeServer } from '../NyawesomeServer';
-import { OutgoingSocketMessage } from './events/outgoing/types';
-import { Socket, SocketEvents } from './Socket';
+import { NyawesomeServer } from "../NyawesomeServer";
+import { createLogger } from "../utils/logging";
+import { OutgoingSocketMessage } from "./events/outgoing/types";
+import { Socket, SocketEvents } from "./Socket";
 
 const env = getEnv();
 
@@ -22,7 +23,7 @@ const DEFAULT_SERVER_CONFIG: GatewayServerConfig = {
  */
 export class GatewayServer {
 	readonly config = DEFAULT_SERVER_CONFIG;
-	readonly logger = utils.createLogger();
+	readonly logger = createLogger("gateway");
 
 	wss?: WebSocket.Server;
 	connections: Map<string, Socket> = new Map();

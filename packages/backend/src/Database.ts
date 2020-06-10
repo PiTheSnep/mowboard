@@ -1,12 +1,11 @@
 import _ from "lodash";
 import mongoose from "mongoose";
 
-import { utils } from "@mowboard/shared";
-
 import { Guild, GuildModel } from "./models/Guild";
+import { createLogger } from "./utils/logging";
 
 enum ConnectionStatus {
-	Disconnected = 0,
+	Disconnected,
 	Connecting,
 	Connected,
 	Reconnecting,
@@ -30,7 +29,7 @@ const DEFAULT_DATABASE_CONFIG: DatabaseConfig = {
  * Class wrapping MongoDB - allows for global access of the db using utility methods.
  */
 export class Database {
-	public readonly logger = utils.createLogger();
+	public readonly logger = createLogger("db");
 	public readonly config = DEFAULT_DATABASE_CONFIG;
 	public connectionStatus = ConnectionStatus.Disconnected;
 

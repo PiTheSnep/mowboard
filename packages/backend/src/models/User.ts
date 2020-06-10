@@ -6,16 +6,14 @@ export interface User extends Document {
 	avatar: string;
 	tag: string;
 
-	guilds: [
-		{
-			features: [];
-			icon: string;
-			id: string;
-			name: string;
-			owner: boolean;
-			permissions: number;
-		},
-	];
+	guilds: {
+		features: [];
+		icon: string;
+		id: string;
+		name: string;
+		owner: boolean;
+		permissions: number;
+	}[];
 }
 
 const UserSchema: Schema = new Schema(

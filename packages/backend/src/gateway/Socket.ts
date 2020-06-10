@@ -2,11 +2,9 @@ import { EventEmitter } from "events";
 import { IncomingMessage } from "http";
 import WebSocket from "ws";
 
-import { utils } from "@mowboard/shared";
-const { validateObject } = utils;
-import { ObjectFromSchema } from "@mowboard/shared/dist/utils";
+import { validateObject } from "@mowboard/shared";
 
-import { NyawesomeGatewayServer } from "./";
+import { GatewayServer } from "./";
 import { ErrorCodes } from "./events";
 import { IncomingSocketHandlers } from "./events/incoming";
 import { IncomingEvents, IncomingSocketMessage } from "./events/incoming/types";
@@ -36,7 +34,7 @@ export class Socket extends EventEmitter {
 	private authTimeout = setTimeout(() => this._handleAuthTimeout(), 10e3);
 
 	constructor(
-		readonly server: NyawesomeGatewayServer,
+		readonly server: GatewayServer,
 		readonly ws: WebSocket,
 		readonly incomingMessage: IncomingMessage,
 	) {
@@ -177,10 +175,7 @@ export class Socket extends EventEmitter {
 		}
 
 		let validation = handler.validationSchema
-			? validateObject(
-					handler.validationSchema,
-					data.d as ObjectFromSchema<any>,
-			  )
+			? validateObject(handler.validationSchema, data.d)
 			: null;
 
 		if (validation && !validation.valid) {

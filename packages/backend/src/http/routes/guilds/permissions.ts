@@ -1,15 +1,13 @@
-import * as express from 'express';
+import * as express from "express";
 
-import { utils } from '@mowboard/shared/';
+import { validateObject } from "@mowboard/shared/";
 
-import { Route } from '../';
-import { HttpServer } from '../..';
-import { DispatchEvents } from '../../../gateway/events/dispatch';
-import { OutgoingEvents } from '../../../gateway/events/outgoing/types';
-import { BadRequest } from '../../errors';
-import { requireAuthentication } from '../../utils/auth';
-
-const { validateObject } = utils;
+import { Route } from "../";
+import { HttpServer } from "../..";
+import { DispatchEvents } from "../../../gateway/events/dispatch";
+import { OutgoingEvents } from "../../../gateway/events/outgoing/types";
+import { BadRequest } from "../../errors";
+import { requireAuthentication } from "../../utils/auth";
 
 const PermissionUpdateSchema = {
 	level: Number,

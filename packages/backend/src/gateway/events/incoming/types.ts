@@ -1,3 +1,5 @@
+import { Schema } from "@mowboard/shared/dist/utils";
+
 import { Socket } from "../../Socket";
 import { DispatchEvents } from "../dispatch";
 
@@ -18,9 +20,9 @@ export interface IncomingSocketMessage<D> {
 /**
  * Represents a handler for an incoming socket message.
  */
-export interface IncomingSocketHandler<D> {
+export interface IncomingSocketHandler<D extends object> {
 	op: IncomingEvents;
 	handler: (socket: Socket, ev: D) => void;
 	requireAuth?: boolean;
-	validationSchema?: any;
+	validationSchema?: Schema<D>;
 }

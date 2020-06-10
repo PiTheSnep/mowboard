@@ -1,5 +1,3 @@
-import { utils } from "@mowboard/shared";
-
 import { Database } from "./Database";
 import { GatewayServer } from "./gateway";
 import { HttpServer } from "./http";

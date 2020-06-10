@@ -1,20 +1,18 @@
 import { getEnv } from "@mowboard/shared";
-import { ObjectFromSchema } from "@mowboard/shared/dist/utils";
+
 import { ErrorCodes } from "../";
 import { IncomingEvents, IncomingSocketHandler } from "./types";
 
 const env = getEnv();
 
-const IdentifyEventSchema = {
-	token: String,
-};
+interface IdentifyEvent {
+	token: string;
+}
 
 /**
  * Handle authorization requests.
  */
-export const IDENTIFY: IncomingSocketHandler<ObjectFromSchema<
-	typeof IdentifyEventSchema
->> = {
+export const IDENTIFY: IncomingSocketHandler<IdentifyEvent> = {
 	op: IncomingEvents.IDENTIFY,
 	handler: (socket, ev) => {
 		if (!ev.token) {
@@ -27,5 +25,7 @@ export const IDENTIFY: IncomingSocketHandler<ObjectFromSchema<
 
 		return socket.close(ErrorCodes.AUTHORIZATION_FAILED);
 	},
-	validationSchema: IdentifyEventSchema,
+	validationSchema: {
+		token: String,
+	},
 };

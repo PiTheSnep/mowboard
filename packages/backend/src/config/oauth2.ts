@@ -1,18 +1,22 @@
-import { getEnv } from "@mowboard/shared";
-import { ObjectFromSchema } from "@mowboard/shared/dist/utils/";
+import { Schema } from "@mowboard/shared";
 
-const env = getEnv();
+interface OAuth2Config {
+	client_id: string;
+	client_secret: string;
+	redirect_uri: string;
+	scope: string;
+}
 
-export const OAuth2ConfigSchema = {
+export const OAuth2ConfigSchema: Schema<OAuth2Config> = {
 	client_id: String,
 	client_secret: String,
 	redirect_uri: String,
 	scope: String,
 };
 
-export const OAuth2Config: ObjectFromSchema<typeof OAuth2ConfigSchema> = {
-	client_id: env.CLIENT_ID,
-	client_secret: env.CLIENT_SECRET,
-	redirect_uri: env.REDIRECT_URI,
-	scope: env.SCOPE,
+export const OAuth2Config: OAuth2Config = {
+	client_id: process.env.CLIENT_ID,
+	client_secret: process.env.CLIENT_SECRET,
+	redirect_uri: process.env.REDIRECT_URI,
+	scope: process.env.SCOPE,
 };

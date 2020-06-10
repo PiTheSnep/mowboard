@@ -1,15 +1,14 @@
 import * as express from "express";
 import * as qs from "query-string";
 
-import { utils } from "@mowboard/shared";
-const { validateObject } = utils;
+import { validateObject } from "@mowboard/shared";
 
-import { NyawesomeHttpServer } from "../..";
+import { HttpServer } from "../..";
 import { OAuth2Config, OAuth2ConfigSchema } from "../../../config/oauth2";
 import { ServersideError } from "../../errors";
 import { ACTIVE_AUTH_TICKETS } from "./";
 
-export const loginHandler = (server: NyawesomeHttpServer) => (
+export const loginHandler = (server: HttpServer) => (
 	req: express.Request,
 	res: express.Response,
 ) => {
