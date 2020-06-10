@@ -4,5 +4,5 @@
   "editor.detectIndentation": false,
   "files.encoding": "utf8",
   "prettier.singleQuote": true,
-  "importSorter.importStringConfiguration.quoteMark": "single"
+  "importSorter.importStringConfiguration.quoteMark": "double"
 }
